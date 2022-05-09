@@ -1,0 +1,28 @@
+name: "Continuous Build"
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  continuous-build:
+    name: "Continuous Build"
+    runs-on: "ubuntu-latest"
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: "Pull Submodules"
+      run: git submodule update --init
+    - name: "Combine"
+      run: make re
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest-build"
+        prerelease: true
+        title: "Development Build"
+        files: |
+          tfm.lua/*.tfm.lua.txt
+
