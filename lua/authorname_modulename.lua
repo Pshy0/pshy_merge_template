@@ -24,6 +24,8 @@
 
 
 --- pshy_merge settings:
+-- from `pshy_loadersync.lua`:
+--pshy.loadersync_enabled = true						-- enable to force the sync player (this can cause problems with some scrips)
 -- from `pshy_mapinfo.lua`:
 --pshy.mapinfo_max_grounds = 50							-- Set the maximum amount of grounds parsed by `pshy_mapinfo`.
 -- from `pshy_newgame.lua`:
