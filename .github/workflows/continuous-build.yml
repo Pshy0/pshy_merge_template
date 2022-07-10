@@ -1,4 +1,4 @@
-name: "Continuous Build"
+name: "Development Build"
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  continuous-build:
-    name: "Continuous Build"
+  development-build:
+    name: "Development Build"
     runs-on: "ubuntu-latest"
 
     steps:
