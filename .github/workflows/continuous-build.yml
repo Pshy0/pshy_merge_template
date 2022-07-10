@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: "Pull Submodules"
+      run: git submodule update --init
     - name: "Update Packages"
       run: sudo apt update
     - name: "Install Lua"
