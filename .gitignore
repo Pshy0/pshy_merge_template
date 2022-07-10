@@ -10,6 +10,7 @@ tmp/
 pshy_merge/tmp/
 *.tmp
 test_results/
+deps/
 
 # Thirdparty scripts:
 pshy_merge/lua/other/
