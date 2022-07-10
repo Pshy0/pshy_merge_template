@@ -13,8 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: "Pull Submodules"
-      run: git submodule update --init
+    - name: "Update Packages"
+      run: sudo apt update
+    - name: "Install Lua"
+      run: sudo apt install lua5.3
     - name: "Combine"
       run: make re
     - uses: "marvinpinto/action-automatic-releases@latest"
@@ -24,5 +26,5 @@ jobs:
         prerelease: true
         title: "Development Build"
         files: |
-          tfm.lua/*.tfm.lua.txt
+          tfm_lua/*.tfm.lua.txt
 
