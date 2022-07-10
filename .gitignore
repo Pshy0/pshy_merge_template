@@ -9,6 +9,7 @@ pshy_merge/tfm.lua/
 tmp/
 pshy_merge/tmp/
 *.tmp
+test_results/
 
 # Thirdparty scripts:
 pshy_merge/lua/other/
