@@ -4,6 +4,7 @@
 --
 -- @author TFM:authorname#0000 DC:authorname#8263
 pshy.require("pshy.essentials")
+pshy.require("pshy.events")
 pshy.require("pshy.perms")
 pshy.require("pshy.bases.version")
 
