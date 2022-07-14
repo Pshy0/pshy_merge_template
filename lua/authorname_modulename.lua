@@ -40,6 +40,6 @@ version.days_before_update_required = nil						-- How old the script should be b
 
 function eventInit()
 	print("This is the pshy_merge template example.")
-	--pshy.newgame_SetRotation("#17")
+	--newgame.SetRotation("#17")
 	--tfm.exec.newGame()
 end
