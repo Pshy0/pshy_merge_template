@@ -2,6 +2,8 @@
 --
 -- Module description.
 --
+-- @header Description to put at the top of the compiled file.
+--
 -- @author TFM:authorname#0000 DC:authorname#8263
 pshy.require("pshy.essentials")
 pshy.require("pshy.events")
