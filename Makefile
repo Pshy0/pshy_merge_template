@@ -13,12 +13,19 @@ all: $(ALL_NAMES)
 
 test: $(ALL_TESTS)
 
+.PHONY: init-submodules
+init-submodules:
+	git submodule update --init --recursive
+
+pshy_merge/combine.py:
+	make init-submodules
+
 %/:
 	mkdir -p $@
 
 -include $(DEPS_DIR)/*.tfm.lua.txt.d
 
-$(OUT_DIR)/%.tfm.lua.txt: | $(OUT_DIR)/ $(DEPS_DIR)/
+$(OUT_DIR)/%.tfm.lua.txt: | pshy_merge/combine.py $(OUT_DIR)/ $(DEPS_DIR)/
 	@printf "\e[92m Generating %s\n" $@ || true
 	@printf "\e[94m" || true
 	./pshy_merge/combine.py --werror --testinit --deps $(patsubst $(OUT_DIR)/%.tfm.lua.txt, $(DEPS_DIR)/%.tfm.lua.txt.d, $@) --out $@ -- $(patsubst $(OUT_DIR)/%.tfm.lua.txt, %, $@)
