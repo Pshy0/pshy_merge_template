@@ -32,7 +32,7 @@ pshy.require("pshy.bases.version")
 --local newgame = pshy.require("pshy.rotations.newgame")
 --newgame.update_map_name_on_new_player = true					-- Enable or disable updating UI informations for new players.
 local perms = pshy.require("pshy.perms")
-perms.authors[105766424] = "Pshy#3752"							-- Replace with your account id (`!accountid`) and nickname.
+perms.authors["Pshy#3752"] = true								-- Replace with your account name.
 perms.auto_admin_authors = false								-- Allow the use of `!adminme` for authors in funcorp rooms.
 local version = pshy.require("pshy.bases.version")
 version.days_before_update_suggested = 14						-- How old the script should be before suggesting an update (`nil` to disable).
