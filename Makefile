@@ -35,7 +35,7 @@ $(TEST_RESULTS_DIR)/%.stdout.txt: $(OUT_DIR)/%.tfm.lua.txt $(NAME_TFMEMULATOR) |
 	@printf "\e[93m \nTesting %s:\n" $< || true
 	@printf "\e[95m" || true
 	(echo "\npackage.path = ';./lua/?.lua;./lua/?/init.lua;./pshy_merge/lua/?.lua;./pshy_merge/lua/?/init.lua'\npshy = {require = require}\ntfmenv = require(\"pshy.tfm_emulator\")\ntfmenv.InitBasicTest()\ntfmenv.LoadModule(\"$<\")\ntfmenv.BasicTest()\n") > $@.test.lua
-	@echo 'cat $@.test.lua | lua > $@'
+	@echo 'cat $@.test.lua | lua5.2 > $@'
 	@echo -n "\e[91m" 1>&2
 	@cat $@.test.lua | lua > $@
 	@printf "\e[95mSTDOUT: \e[96m\n" || true
