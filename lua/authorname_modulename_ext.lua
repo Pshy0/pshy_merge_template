@@ -5,7 +5,7 @@
 --
 -- @author TFM:authorname#0000 DC:authorname#8263
 pshy.require("authorname_modulename")
-pshy.require("pshy.essentials_plus")
+pshy.require("pshy.essentials.plus")
 
 
 
