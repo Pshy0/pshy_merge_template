@@ -8,14 +8,20 @@ NAME_MAIN_EXT			= $(OUT_DIR)/authorname_modulename_ext.tfm.lua.txt
 ALL_NAMES				= $(NAME_MAIN) $(NAME_MAIN_EXT)
 ALL_TESTS				= $(patsubst $(OUT_DIR)/%.tfm.lua.txt, $(TEST_RESULTS_DIR)/%.stdout.txt, $(ALL_NAMES))
 
+OPTIONS					= --werror --test-init --minify
+
 # Rules:
 all: $(ALL_NAMES)
+
+.PHONY: clip
+clip: OPTIONS += --clip
+clip: $(NAME_MAIN)
 
 test: $(ALL_TESTS)
 
 .PHONY: init-submodules
 init-submodules:
-	git submodule update --init --recursive
+	git submodule update --init
 
 pshy_merge/combine.py:
 	make init-submodules
@@ -28,7 +34,7 @@ pshy_merge/combine.py:
 $(OUT_DIR)/%.tfm.lua.txt: | pshy_merge/combine.py $(OUT_DIR)/ $(DEPS_DIR)/
 	@printf "\e[92m Generating %s\n" $@ || true
 	@printf "\e[94m" || true
-	./pshy_merge/combine.py --werror --test-init --deps $(patsubst $(OUT_DIR)/%.tfm.lua.txt, $(DEPS_DIR)/%.tfm.lua.txt.d, $@) --out $@ -- $(patsubst $(OUT_DIR)/%.tfm.lua.txt, %, $@)
+	./pshy_merge/combine.py $(OPTIONS) --deps $(patsubst $(OUT_DIR)/%.tfm.lua.txt, $(DEPS_DIR)/%.tfm.lua.txt.d, $@) --out $@ -- $(patsubst $(OUT_DIR)/%.tfm.lua.txt, %, $@)
 	@printf "\e[0m" || true
 
 $(TEST_RESULTS_DIR)/%.stdout.txt: $(OUT_DIR)/%.tfm.lua.txt $(NAME_TFMEMULATOR) | $(TEST_RESULTS_DIR)/
