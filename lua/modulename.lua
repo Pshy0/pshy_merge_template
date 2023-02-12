@@ -1,4 +1,4 @@
---- authorname_modulename
+--- modulename
 --
 -- Module description.
 --
