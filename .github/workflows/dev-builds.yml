@@ -17,6 +17,8 @@ jobs:
       run: sudo apt update
     - name: "Install Lua"
       run: sudo apt install lua5.2
+    - name: "Install luamin"
+      run: sudo npm install -g luamin
     - name: "Pull Submodules"
       run: git submodule update --init
     - name: "Combine"
