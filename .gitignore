@@ -1,7 +1,9 @@
 # Compiled scripts:
 tfm.lua/
+tfm_lua/
 pshy_merge/examples/
 pshy_merge/tfm.lua/
+pshy_merge/tfm_lua/
 *.tfm.lua
 *.tfm.lua.txt
 
